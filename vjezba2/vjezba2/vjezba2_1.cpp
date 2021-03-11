@@ -26,7 +26,7 @@ int main(){
     cout << "unesi broj elemenata niza";
     cin >> n;
 
-    int* niz = {};
+    int niz[20];
 
     for (int i = 0; i < n; i++)
     {
