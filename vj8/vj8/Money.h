@@ -12,7 +12,7 @@ public:
 	friend money operator+(money c, money d);
 	friend money operator-(money c, money d);
 	money& operator+=(const money& a);
-	money& operator-=(const money& a) { kn -= a.kn; lp -= a.lp; return *this; };
+	money& operator-=(const money& a);
 	friend ostream& operator<<(ostream& a, money& b);
 	operator double() const { return double(kn) + double(lp / 100.0); };
 	~money() {};

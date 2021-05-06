@@ -19,7 +19,14 @@ money operator+(money a, money b) {
 }
 
 money operator-(money a, money b) {
-	return money(a.kn - b.kn, a.lp - b.lp);
+	int d, f;
+	d = a.lp - b.lp;
+	f = a.kn - b.kn;
+	if (d < 0) {
+		f = f - 1;
+		d = 100 + d;
+	}
+	return money(f, d);
 }
 
 ostream& operator<<(ostream& a, money& b) {
@@ -35,3 +42,12 @@ money& money::operator+=(const money& a) {
 	}
 	return *this; 
 }
+
+money& money::operator-=(const money& a) { 
+	kn -= a.kn;
+	lp -= a.lp;
+	if(lp < 0){
+		kn--;
+		lp = 100 - lp;
+	}
+	return *this; };
