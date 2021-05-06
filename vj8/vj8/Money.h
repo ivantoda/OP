@@ -14,5 +14,6 @@ public:
 	money& operator+=(const money& a) { kn += a.kn; lp += a.lp; return *this; };
 	money& operator-=(const money& a) { kn -= a.kn; lp -= a.lp; return *this; };
 	friend ostream& operator<<(ostream& a, money& b);
+	operator double() const { return double(kn) + double(lp / 100.0); };
 	~money() {};
 };
