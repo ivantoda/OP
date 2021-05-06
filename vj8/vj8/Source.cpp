@@ -14,6 +14,7 @@ int main() {
 	racun -= pivo;
 	// i dodati babic
 	racun += babic;
-	double	dbl = racun;
-	cout <<setprecision(2) <<fixed << dbl << " Kn" << endl;
+	cout << racun << endl;
+	//double	dbl = racun;
+	//cout <<setprecision(2) <<fixed << dbl << " Kn" << endl;
 }

@@ -8,7 +8,14 @@ money::money(int a, int b) {
 }
 
 money operator+(money a, money b) {
-	return money(a.kn + b.kn, a.lp + b.lp);
+	int d, f;
+	d = a.lp + b.lp;
+	f = a.kn + b.kn;
+	if (d >= 100) {
+		f = f + 1;
+		d = d - 100;
+	}
+	return money(f ,d);
 }
 
 money operator-(money a, money b) {
@@ -16,7 +23,15 @@ money operator-(money a, money b) {
 }
 
 ostream& operator<<(ostream& a, money& b) {
-	b.kn  = b.kn + b.lp / 100;
-	b.lp = b.lp % 100;
 	return a << b.kn <<" kuna, " << b.lp <<" lipa"; 
+}
+
+money& money::operator+=(const money& a) { 
+	kn += a.kn;
+	lp += a.lp;
+	if (lp >= 100) {
+		kn++;
+		lp = lp - 100;
+	}
+	return *this; 
 }
